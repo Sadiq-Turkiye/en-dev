@@ -1,120 +1,73 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
+import PageHero from "../components/PageHero.jsx";
+import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
+import SectionHeading from "../components/SectionHeading.jsx";
+import PageCTA from "../components/PageCTA.jsx";
 import { MAP_COUNTRIES } from "../data/mapGeometry.js";
-import { DEFINITION, TRANSFORM, AUDIENCES, PROCESS } from "../data/site.js";
-
-function TransformCard() {
-  return (
-    <figure className="xform" aria-label="EN-DEV turns underperforming, underutilized, energy-exposed assets into optimized, lower-cost, lower-carbon, investable assets">
-      <div className="xform-panel">
-        <span className="channel-label">The asset today</span>
-        <ul>{TRANSFORM.from.map((t) => <li key={t}>{t}</li>)}</ul>
-      </div>
-      <div className="xform-mid" aria-hidden="true">
-        <span className="xform-line" />
-        <span className="xform-chip">EN-DEV integrated development</span>
-        <span className="xform-line" />
-      </div>
-      <div className="xform-panel xform-to">
-        <span className="channel-label">The asset after</span>
-        <ul>{TRANSFORM.to.map((t) => <li key={t}><Icon name="check" />{t}</li>)}</ul>
-      </div>
-    </figure>
-  );
-}
+import { DEFINITION, TRANSFORM, AUDIENCES } from "../data/site.js";
+import { SERVICES } from "../data/services.js";
 
 export default function Home() {
-  useEffect(() => {
-    document.title = "EN-DEV | Industrial Energy Transition & Asset Development";
-  }, []);
-
+  useEffect(() => { document.title = "EN-DEV | Industrial Energy Transition & Asset Development"; }, []);
   return (
-    <>
-      {/* HERO */}
-      <section className="hero">
-        <div className="blueprint-grid" aria-hidden="true" />
-        <div className="container hero-inner">
-          <div className="hero-copy">
-            <h1 className="h1-long">Industrial assets, developed into <span className="accent">investable</span> energy-transition opportunities.</h1>
-            <p className="lead">
-              We find industrial assets where energy transition and industrial transformation can unlock hidden value,
-              develop them into bankable projects, and bring in the capital to realize them.
-            </p>
-            <div className="hero-actions">
-              <Link to="/contact?as=owner" className="btn btn-primary btn-lg">I have an industrial asset <Icon name="arrow" /></Link>
-              <Link to="/contact?as=investor" className="btn btn-ghost btn-lg">I'm an investor</Link>
-            </div>
-          </div>
-          <TransformCard />
-        </div>
-      </section>
+    <div className="themed-page home-page">
+      <PageHero
+        eyebrow="Industrial energy transition & asset development"
+        title={<>Industrial potential.<br /><span className="accent">Developed into value.</span></>}
+        description="We find the hidden value in industrial assets, develop energy-transition opportunities, and bring together the expertise and capital to realize them."
+        actions={<><Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Let’s develop your asset <Icon name="arrow" /></Link><Link to="/portfolio" className="btn btn-ghost btn-lg">Explore our portfolio</Link></>}
+      ><BlueprintDiagram variant="home" /></PageHero>
 
-      {/* WHAT WE DO */}
-      <section className="statement">
-        <div className="container statement-grid">
-          <p className="statement-big">Where energy transition, industrial optimization and capital restructuring unlock more value than an asset generates today.</p>
+      <section className="page-section page-section-white" aria-labelledby="home-value">
+        <div className="container value-grid reveal">
           <div>
-            <p>{DEFINITION}</p>
-            <Link to="/about" className="loc-link">More about EN-DEV <Icon name="arrow" /></Link>
+            <SectionHeading number="01" eyebrow="What we do" id="home-value" title="A new chapter for industrial assets." />
+            <p className="section-copy">{DEFINITION}</p>
+            <Link to="/about" className="loc-link">Get to know EN-DEV <Icon name="arrow" /></Link>
+          </div>
+          <div className="value-panel">
+            <div className="value-before"><span className="channel-label">The opportunity today</span><ul>{TRANSFORM.from.map((item) => <li key={item}>{item}</li>)}</ul></div>
+            <div className="value-bridge"><span /><Icon name="arrow" /><span /></div>
+            <div className="value-after"><span className="channel-label">What we work towards</span><ul>{TRANSFORM.to.map((item) => <li key={item}><Icon name="check" />{item}</li>)}</ul></div>
           </div>
         </div>
       </section>
 
-      {/* TWO SIDES */}
-      <section className="audiences" aria-labelledby="audTitle">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">Who we bring together</p>
-            <h2 id="audTitle" className="h2">Asset owners on one side. Capital on the other.</h2>
+      <section className="page-section" aria-labelledby="home-services">
+        <div className="container reveal">
+          <div className="section-heading-row">
+            <SectionHeading number="02" eyebrow="Connected expertise" id="home-services" title="The right expertise. Around one asset." />
+            <Link to="/services" className="loc-link">Explore all services <Icon name="arrow" /></Link>
           </div>
-          <div className="aud-grid">
-            {AUDIENCES.map((a) => (
-              <article key={a.key} className={`aud-card aud-${a.key}`}>
-                <div className="aud-icon"><Icon name={a.icon} /></div>
-                <p className="partner-field">{a.kind}</p>
-                <h3>{a.title}</h3>
-                <p>{a.text}</p>
-                <ul className="ticks">{a.points.map((p) => <li key={p}><Icon name="check" />{p}</li>)}</ul>
-                <Link to={a.cta.to} className="btn btn-primary">{a.cta.label} <Icon name="arrow" /></Link>
+          <div className="service-preview-grid stagger">
+            {[SERVICES[0], SERVICES[1], SERVICES[3]].map((service, i) => (
+              <Link key={service.id} to={`/services#${service.id}`} className="service-preview" style={{ "--i": i }}>
+                <div className="aud-icon"><Icon name={service.icon} /></div><h3>{service.title}</h3><p>{service.text}</p>
+                <span className="service-preview-link">Discover the service <Icon name="arrow" /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section page-section-white" aria-labelledby="home-audiences">
+        <div className="container reveal">
+          <SectionHeading number="03" eyebrow="Who we bring together" id="home-audiences" title="Your asset. Your capital. Our shared opportunity." />
+          <div className="aud-grid stagger">
+            {AUDIENCES.map((audience, i) => (
+              <article key={audience.key} className={`aud-card aud-${audience.key}`} style={{ "--i": i }}>
+                <div className="aud-icon"><Icon name={audience.icon} /></div><p className="partner-field">{audience.kind}</p>
+                <h3>{audience.title}</h3><p>{audience.text}</p>
+                <ul className="ticks">{audience.points.map((point) => <li key={point}><Icon name="check" />{point}</li>)}</ul>
+                <Link to={`${audience.cta.to}#enquiry`} className="btn btn-primary">{audience.cta.label} <Icon name="arrow" /></Link>
               </article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* PROCESS */}
-      <section className="process" aria-labelledby="procTitle">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow light">How we work</p>
-            <h2 id="procTitle">From an industrial site to an investment-ready project, in seven steps.</h2>
-          </div>
-          <ol className="psteps">
-            {PROCESS.map((s, i) => (
-              <li key={s.title} className="pstep">
-                <span className="pstep-num">{String(i + 1).padStart(2, "0")}</span>
-                <h3>{s.title}</h3>
-                <p>{s.text}</p>
-                <ul>{s.items.map((it) => <li key={it}>{it}</li>)}</ul>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta-band cta-top">
-        <div className="container">
-          <div className="cta-inner">
-            <div>
-              <p className="eyebrow light">Active in {MAP_COUNTRIES.length} countries</p>
-              <h2>See where we develop projects.</h2>
-            </div>
-            <Link to="/portfolio" className="btn btn-light btn-lg">Our portfolio <Icon name="arrow" /></Link>
-          </div>
-        </div>
-      </section>
-    </>
+      <PageCTA eyebrow={`Active in ${MAP_COUNTRIES.length} countries`} title="Discover where potential becomes a project." label="Our portfolio" to="/portfolio" />
+    </div>
   );
 }

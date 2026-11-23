@@ -32,5 +32,6 @@ GitHub Pages publishes the committed `docs/` directory on `main`. Rebuild it
 before pushing website changes. The Pages build uses the `/en-dev/` base path
 and creates entry points for direct links and refreshes.
 
-The root and About Us routes redirect to Our Portfolio. The Home and About Us
-source files are retained, but those pages are not linked or rendered.
+Home, Services, About Us, Our Portfolio and Contact Us are available through
+the shared navigation. The Partners page remains available at `/partners`.
+The `/home` route redirects to the canonical home page at `/`.

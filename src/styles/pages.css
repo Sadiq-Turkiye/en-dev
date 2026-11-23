@@ -1,0 +1,178 @@
+/* Home, Services and About share the Contact page's brand tokens and surfaces. */
+.page-hero .hero-inner { align-items: center; }
+.page-hero .hero-copy { min-width: 0; animation: page-enter .7s var(--ease) both; }
+.page-hero h1 { font-size: clamp(38px, 4.7vw, 66px); text-wrap: balance; }
+.page-hero .hero-actions { margin-bottom: 0; }
+.page-hero .eyebrow { color: var(--logo-blue); }
+.page-section { padding: 88px 0; }
+.page-section-white { background: var(--white); border-block: 1px solid var(--line); }
+.page-cta { padding-top: 80px; }
+.themed-page .section-head { max-width: 760px; margin-bottom: 36px; }
+.section-description, .section-copy { font-size: 17px; line-height: 1.75; }
+.section-description { margin-top: 18px; max-width: 650px; }
+.section-heading-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 36px; }
+.section-heading-row .section-head { margin-bottom: 0; max-width: 650px; }
+.section-heading-row > .loc-link { flex-shrink: 0; margin: 0 0 4px; }
+.themed-page .loc-link { display: inline-flex; align-items: center; gap: 9px; font-weight: 600; }
+.themed-page .loc-link svg { width: 18px; height: 18px; flex-shrink: 0; transition: transform .25s var(--ease); }
+.themed-page .loc-link:hover svg { transform: translateX(4px); }
+.themed-page .ticks li { align-items: flex-start; }
+.themed-page .ticks svg { margin-top: 5px; }
+
+/* Framed diagrams follow the dashed EN-DEV frame on Contact Us. */
+.blueprint-diagram { width: 100%; max-width: 600px; justify-self: center; animation: page-enter .9s .12s var(--ease) both; }
+.blueprint-diagram figcaption { font-size: 13px; color: var(--muted); text-align: center; padding: 8px 16px 0; }
+.blueprint-brand { fill: #fff; stroke: var(--line); stroke-width: 1; }
+.blueprint-track { fill: none; stroke: #C9D7E8; stroke-width: 1.5; stroke-dasharray: 3 6; }
+.blueprint-flow { fill: none; stroke: var(--logo-blue); stroke-width: 2; stroke-dasharray: 6 18; animation: blueprint-flow 2.8s linear infinite; }
+.blueprint-node-body { fill: #fff; stroke: var(--line); stroke-width: 1.5; }
+.blueprint-node-ring { fill: var(--light-blue); stroke: none; opacity: .55; transform-box: fill-box; transform-origin: center; animation: blueprint-pulse 4.8s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -1.6s); }
+.blueprint-icon { color: var(--deep-blue); stroke-width: 1.8; }
+.blueprint-label { fill: var(--deep-blue); stroke: none; font: 600 13px Inter, sans-serif; text-anchor: middle; }
+.blueprint-caption { fill: var(--muted); stroke: none; font: 400 10px Inter, sans-serif; text-anchor: middle; }
+.blueprint-core > rect { fill: var(--deep-blue); stroke: none; }
+.blueprint-core .blueprint-icon { color: #fff; }
+.blueprint-core > text { fill: #fff; stroke: none; font: 500 10px Inter, sans-serif; text-anchor: middle; }
+.blueprint-orbit { fill: none; stroke: var(--logo-blue); stroke-width: 1; stroke-dasharray: 2 7; opacity: .45; transform-box: fill-box; transform-origin: center; animation: spin 60s linear infinite; }
+.blueprint-result rect { fill: var(--light-blue); stroke: #C9D7E8; stroke-width: 1; }
+.blueprint-result text { fill: var(--deep-blue); stroke: none; font: 600 11px Inter, sans-serif; text-anchor: middle; }
+.blueprint-member rect { fill: #fff; stroke: var(--line); stroke-width: 1.5; animation: blueprint-member 6s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -1.5s); }
+@keyframes blueprint-flow { to { stroke-dashoffset: -48; } }
+@keyframes blueprint-pulse { 0%, 100% { transform: scale(1); opacity: .35; } 50% { transform: scale(1.12); opacity: .8; } }
+@keyframes blueprint-member { 0%, 65%, 100% { stroke: var(--line); fill: #fff; } 20%, 40% { stroke: var(--logo-blue); fill: #F0F5FC; } }
+@keyframes page-enter { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+/* Asset transformation and platform roles use the Contact channel treatment. */
+.value-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.value-grid .section-head { margin-bottom: 22px; }
+.value-grid .section-copy + .loc-link { margin-top: 24px; }
+.value-panel { border: 1px solid var(--line); border-radius: 20px; background: var(--bg); padding: 28px; }
+.value-panel ul { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.value-panel li { border: 1px solid var(--line); background: #fff; padding: 7px 13px; border-radius: 999px; font-size: 14px; }
+.value-before, .value-after { padding: 22px; border-radius: var(--radius); }
+.value-before { background: #fff; border: 1px dashed #C9D7E8; }
+.value-after { background: var(--light-blue); border: 1px solid #ADC8E9; }
+.value-after li { display: inline-flex; align-items: center; gap: 6px; color: var(--deep-blue); font-weight: 500; }
+.value-after svg { width: 15px; height: 15px; color: var(--logo-blue); }
+.value-bridge { display: flex; flex-direction: column; align-items: center; padding: 5px; color: var(--logo-blue); }
+.value-bridge span { height: 10px; border-left: 1px dashed #ADC8E9; }
+.value-bridge svg { width: 22px; height: 22px; transform: rotate(90deg); }
+.platform-roles { display: grid; gap: 12px; }
+.platform-role { display: flex; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; background: var(--bg); }
+.platform-role .aud-icon { flex-shrink: 0; margin: 0; }
+.platform-role h3 { font-size: 20px; margin-bottom: 6px; }
+.platform-role p, .platform-note { font-size: 14px; }
+.platform-note { color: var(--muted); padding: 8px 4px 0; }
+
+/* Service cards echo the enquiry form and direct-contact panels. */
+.service-preview-grid, .services-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.service-preview, .service-card { position: relative; display: flex; flex-direction: column; align-items: flex-start; padding: 32px; border: 1px solid var(--line); border-radius: 20px; background: #fff; color: var(--text); box-shadow: var(--shadow); }
+.service-preview { transition: border-color .25s, box-shadow .25s, transform .25s var(--ease); }
+.themed-page .service-preview:hover, .themed-page .service-preview:focus-visible { border-color: #9FBFE6; box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.service-preview h3, .service-card h3 { font-size: 24px; line-height: 1.2; margin-bottom: 14px; }
+.service-preview p, .service-card > p:not(.eyebrow) { font-size: 15px; line-height: 1.75; margin-bottom: 24px; }
+.service-preview-link { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; font-size: 14px; font-weight: 600; color: var(--logo-blue); }
+.service-preview-link svg { width: 18px; height: 18px; transition: transform .25s; }
+.service-preview:hover .service-preview-link svg { transform: translateX(4px); }
+.service-card-top { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; }
+.service-index { font-size: 12px; letter-spacing: .1em; color: var(--muted); padding-top: 5px; }
+.service-card .ticks { font-size: 14px; margin: auto 0 0; padding-top: 20px; border-top: 1px solid var(--line); width: 100%; }
+.service-card-invitation { background: linear-gradient(135deg, #F6F9FD, var(--light-blue)); border-style: dashed; border-color: #9FBFE6; box-shadow: none; }
+.service-card-invitation .loc-link { margin-top: auto; }
+.themed-page .aud-card { transition: border-color .25s, box-shadow .25s; }
+.themed-page .aud-card:hover { border-color: #ADC8E9; box-shadow: var(--shadow-lg); }
+.themed-page .aud-icon { transition: background .25s, color .25s; }
+.service-preview:hover .aud-icon { background: var(--logo-blue); color: #fff; }
+
+/* A selectable development journey, with all seven stages keyboard accessible. */
+.development-process { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 32px; align-items: stretch; }
+.development-stages { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.development-stages button { width: 100%; display: flex; align-items: center; gap: 16px; text-align: left; font: inherit; font-weight: 500; font-size: 15px; color: var(--deep-blue); background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px; cursor: pointer; transition: background .25s, border-color .25s, box-shadow .25s; }
+.development-stages button:hover { border-color: var(--logo-blue); background: #F2F6FC; }
+.development-stages button[aria-pressed="true"] { background: var(--light-blue); border-color: var(--logo-blue); box-shadow: 0 0 0 1px var(--logo-blue); }
+.development-number { width: 32px; height: 32px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; background: var(--bg); color: var(--logo-blue); font-size: 12px; }
+.development-stages button[aria-pressed="true"] .development-number { background: var(--logo-blue); color: #fff; }
+.development-stages button > svg { width: 18px; height: 18px; margin-left: auto; flex-shrink: 0; color: var(--logo-blue); }
+.development-stages button > span:nth-child(2) { min-width: 0; overflow-wrap: anywhere; }
+.development-detail { display: flex; flex-direction: column; padding: 40px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+.development-detail-copy { animation: page-enter .3s var(--ease); }
+.development-detail h3 { font-size: clamp(26px, 3vw, 36px); margin-bottom: 14px; }
+.development-description { font-size: 17px; margin-bottom: 28px; }
+.development-detail .ticks { gap: 12px; }
+.development-detail-footer { padding-top: 24px; border-top: 1px solid var(--line); margin-top: auto; }
+.development-detail-footer p { font-size: 14px; color: var(--muted); margin-bottom: 12px; }
+.services-page .formula-list > li { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; gap: 16px; }
+.services-page .formula-parts { min-width: 0; }
+.services-page .formula-line { display: none; }
+
+/* About: capabilities, participation and ambition. */
+.themed-page .pillar { background: #fff; border-radius: var(--radius); transition: border-color .25s, box-shadow .25s; }
+.themed-page .pillar:hover { border-color: #ADC8E9; box-shadow: var(--shadow); }
+.discipline-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 28px; font-size: 14px; color: var(--muted); }
+.discipline-footer .loc-link { margin: 0; flex-shrink: 0; }
+.themed-page .sit-grid .section-head { margin-bottom: 0; }
+.themed-page .chip-cloud li { transition: border-color .25s, transform .25s; }
+.themed-page .chip-cloud li:hover { transform: translateY(-3px); border-color: var(--logo-blue); }
+.participation-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.participation-grid > li { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: #fff; }
+.participation-number { display: inline-grid; place-items: center; width: 36px; height: 36px; color: var(--logo-blue); background: var(--light-blue); border-radius: 10px; font-size: 12px; font-weight: 600; margin-bottom: 22px; }
+.participation-grid h3 { font-size: 21px; margin-bottom: 10px; }
+.participation-grid p { font-size: 15px; }
+.ambition-mark { width: 52px; height: 52px; margin: 0 auto 24px; border-radius: 50%; display: grid; place-items: center; color: var(--logo-blue); background: var(--light-blue); }
+.ambition-mark svg { width: 26px; height: 26px; }
+
+@media (max-width: 1100px) {
+  .services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service-preview, .service-card { padding: 26px; }
+  .value-grid { gap: 36px; }
+  .development-process { gap: 24px; }
+  .development-detail { padding: 32px; }
+}
+@media (max-width: 960px) {
+  .page-section { padding: 64px 0; }
+  .page-hero .hero-copy { max-width: 680px; }
+  .page-hero h1 { font-size: clamp(38px, 7vw, 60px); }
+  .page-hero .hero-inner { gap: 32px; }
+  .blueprint-diagram { max-width: 520px; }
+  .section-heading-row { align-items: flex-start; flex-direction: column; }
+  .service-preview-grid { grid-template-columns: 1fr; }
+  .value-grid { grid-template-columns: 1fr; }
+  .value-panel { max-width: 680px; width: 100%; }
+  .participation-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .discipline-footer { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .page-cta { padding-top: 64px; padding-bottom: 64px; }
+}
+@media (max-width: 700px) {
+  .development-process { grid-template-columns: 1fr; }
+  .development-stages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .development-stages button { height: 100%; min-height: 76px; padding: 12px; gap: 10px; font-size: 13px; }
+  .development-stages button > svg { display: none; }
+  .development-stages li:last-child { grid-column: 1 / -1; }
+  .development-stages li:last-child button { min-height: 60px; }
+  .development-detail { min-height: 480px; padding: 28px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .services-page .formula-list > li { grid-template-columns: 22px minmax(0, 1fr); padding: 18px 14px; gap: 12px; }
+  .services-page .formula-result { grid-column: 2; margin: 0; justify-self: start; }
+  .services-page .formula-chip { padding: 6px 10px; font-size: 13px; }
+  .themed-page .cta-inner h2 { max-width: 550px; }
+}
+@media (max-width: 480px) {
+  .page-hero .eyebrow { font-size: 10px; letter-spacing: .12em; }
+  .page-hero .lead { font-size: 16px; }
+  .page-section { padding: 52px 0; }
+  .value-panel { padding: 16px; }
+  .value-before, .value-after { padding: 18px; }
+  .value-panel li { font-size: 13px; padding: 6px 10px; }
+  .service-preview, .service-card { padding: 26px 22px; }
+  .participation-grid { grid-template-columns: 1fr; }
+  .platform-role { align-items: flex-start; padding: 18px; gap: 14px; }
+  .platform-role .aud-icon { width: 40px; height: 40px; }
+  .section-description, .section-copy { font-size: 16px; }
+  .blueprint-diagram figcaption { font-size: 12px; }
+  .development-number { width: 26px; height: 26px; font-size: 11px; }
+  .development-stages button { gap: 8px; padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-hero .hero-copy, .blueprint-diagram, .blueprint-diagram *, .development-detail-copy { animation: none !important; }
+  .themed-page .reveal, .themed-page .reveal .stagger > * { opacity: 1; transform: none; }
+}

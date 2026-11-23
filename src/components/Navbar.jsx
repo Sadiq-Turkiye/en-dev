@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <header className={`site-header${scrolled ? " scrolled" : ""}`}>
       <div className="container nav-inner">
-        <Link to="/portfolio" className="brand" aria-label="EN-DEV portfolio">
+        <Link to="/" className="brand" aria-label="EN-DEV home">
           <img src={logo} alt="EN-DEV" />
         </Link>
 

@@ -24,6 +24,9 @@ export const PERSONAS = [
 export const REASONS = ["Investment opportunity", "Tender", "New project", "Partnership", "Technical support"];
 
 export const NAV_LINKS = [
+  { to: "/", label: "Home", end: true },
+  { to: "/services", label: "Services" },
+  { to: "/about", label: "About Us" },
   { to: "/portfolio", label: "Our Portfolio" },
   { to: "/contact", label: "Contact Us" },
 ];

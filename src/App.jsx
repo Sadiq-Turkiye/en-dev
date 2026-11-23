@@ -5,6 +5,9 @@ import Footer from "./components/Footer.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import Partners from "./pages/Partners.jsx";
 import Contact from "./pages/Contact.jsx";
+import Home from "./pages/Home.jsx";
+import About from "./pages/About.jsx";
+import Services from "./pages/Services.jsx";
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -50,12 +53,14 @@ export default function App() {
       <Navbar />
       <main id="main">
         <Routes>
-          <Route path="/" element={<Navigate to="/portfolio" replace />} />
-          <Route path="/about" element={<Navigate to="/portfolio" replace />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Navigate to="/" replace />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/partners" element={<Partners />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<Navigate to="/portfolio" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
       <RevealManager />

@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div className="footer-brand">
-          <Link to="/portfolio" className="footer-logo" aria-label="EN-DEV portfolio">
+          <Link to="/" className="footer-logo" aria-label="EN-DEV home">
             <img src={logo} alt="EN-DEV" />
           </Link>
           <p>Industrial development and investment, engineered with purpose.</p>
