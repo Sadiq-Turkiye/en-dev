@@ -34,7 +34,7 @@ export default function Contact() {
   return (
     <>
       {/* HERO */}
-      <section className="hero">
+      <section className="hero contact-hero">
         <div className="blueprint-grid" aria-hidden="true" />
         <div className="container hero-inner">
           <div className="hero-copy">

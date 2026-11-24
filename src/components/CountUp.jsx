@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 // Counts from 0 up to `to` once on mount; shows the final value straight away for reduced motion.
-export default function CountUp({ to, duration = 1200, delay = 300 }) {
+// Optional `prefix` / `suffix` wrap the number (e.g. "+125", "10+").
+export default function CountUp({ to, prefix = "", suffix = "", duration = 1200, delay = 300 }) {
   const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
   const [value, setValue] = useState(reduce ? to : 0);
 
@@ -21,5 +22,5 @@ export default function CountUp({ to, duration = 1200, delay = 300 }) {
     return () => { clearTimeout(timer); cancelAnimationFrame(raf); };
   }, [to, duration, delay, reduce]);
 
-  return <>{value}</>;
+  return <>{prefix}{value}{suffix}</>;
 }

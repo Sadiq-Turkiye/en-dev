@@ -7,7 +7,7 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import PageCTA from "../components/PageCTA.jsx";
 import DevelopmentProcess from "../components/DevelopmentProcess.jsx";
 import { SERVICES } from "../data/services.js";
-import { STRUCTURES } from "../data/site.js";
+import { STRUCTURES, SIGNALS, TARGET_ASSETS } from "../data/site.js";
 
 export default function Services() {
   useEffect(() => { document.title = "Our Services | EN-DEV"; }, []);
@@ -48,20 +48,65 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="page-section page-section-white" aria-labelledby="combinations-title">
+      <section className="page-section page-section-white" aria-labelledby="assetTitle">
         <div className="container reveal">
-          <SectionHeading number="03" eyebrow="Better together" id="combinations-title" title="Connected solutions. More possibilities." description="A project may combine several opportunities. These are some of the ways we bring them together." />
-          <ol className="formula-list stagger">
-            {STRUCTURES.map((parts, i) => (
-              <li key={parts.map((part) => part.label).join("-")} style={{ "--i": i }}>
-                <span className="formula-idx">0{i + 1}</span>
-                <div className="formula-parts">{parts.map((part, index) => <span className="formula-part" key={part.label}>{index > 0 && <b aria-label="plus">+</b>}<span className="formula-chip"><Icon name={part.icon} />{part.label}</span></span>)}</div>
-                <span className="formula-line" aria-hidden="true" /><span className="formula-result"><Icon name="check" />One project</span>
+          <SectionHeading number="03" eyebrow="What we develop" id="assetTitle" title="Four types of industrial assets." />
+          <ul className="asset-grid stagger">
+            {TARGET_ASSETS.map((a, i) => (
+              <li key={a.tag} className="asset-card" style={{ "--i": i }}>
+                <span className="asset-tag" aria-hidden="true"><Icon name={a.icon} /></span>
+                <Icon name={a.icon} className="asset-watermark" />
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+                {a.chips.length > 0 && <ul className="chips">{a.chips.map((c) => <li key={c}>{c}</li>)}</ul>}
               </li>
             ))}
-          </ol>
+          </ul>
         </div>
       </section>
+
+      <section className="page-section" aria-labelledby="sigTitle">
+        <div className="container reveal">
+          <SectionHeading number="04" eyebrow="What we look for" id="sigTitle" title="Does your site have several of these?" />
+          <ul className="signal-grid stagger">
+            {SIGNALS.map((s, i) => (
+              <li key={s.label} className="signal" style={{ "--i": i }}>
+                <span className="signal-icon"><Icon name={s.icon} /></span>
+                <span>{s.label}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="signals-cta">
+            <Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Tell us about your asset <Icon name="arrow" /></Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="page-section page-section-white" aria-labelledby="strTitle">
+        <div className="container reveal">
+          <SectionHeading number="05" eyebrow="Typical project structures" id="strTitle" title="Several value levers. One investable project." />
+          <ul className="formula-list stagger">
+            {STRUCTURES.map((parts, row) => (
+              <li key={row} style={{ "--i": row }}>
+                <span className="formula-idx">{String(row + 1).padStart(2, "0")}</span>
+                <span className="formula-parts">
+                  {parts.map((p, i) => (
+                    <span key={p.label} className="formula-part">
+                      {i > 0 && <b aria-hidden="true">+</b>}
+                      <span className="formula-chip"><Icon name={p.icon} />{p.label}</span>
+                    </span>
+                  ))}
+                </span>
+                <span className="formula-line" aria-hidden="true" />
+                <span className="formula-result" aria-label="results in an investable project">
+                  <Icon name="check" /> Investable project
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <PageCTA eyebrow="Your next step" title="Let’s find the potential in your asset." label="Start the conversation" to="/contact?as=owner#enquiry" />
     </div>
   );

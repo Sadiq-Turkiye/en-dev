@@ -3,7 +3,7 @@
 export const ONE_LINER = "EN-DEV develops industrial assets into investable energy-transition opportunities.";
 
 export const DEFINITION =
-  "EN-DEV is an Industrial Energy Transition & Asset Development platform that identifies underperforming, underutilized or energy-intensive industrial assets, integrates energy transition and industrial optimization opportunities, develops them into bankable projects, connects them with capital, and selectively retains development economics and ownership.";
+  "EN-DEV is an Industrial Energy Transition & Asset Development platform that identifies underperforming, underutilized or energy intensive industrial assets, integrates energy transition and industrial optimization opportunities, develops them into bankable projects, connects them with capital, and selectively retains development economics and ownership.";
 
 export const AMBITION =
   "To become an industrial energy-transition development and investment platform connecting underperforming or energy-intensive industrial assets with technology, renewable energy, capital and strategic transformation.";
@@ -79,15 +79,13 @@ export const PROCESS = [
 export const PILLARS = [
   { icon: "factory", title: "Industrial", items: ["Operational optimization", "Brownfield analysis", "Industrial modernization"] },
   { icon: "bolt", title: "Energy", items: ["Renewable generation", "Battery energy storage (BESS)", "Electrification"] },
-  { icon: "cog", title: "Technical", items: ["Engineering", "Feasibility studies", "Digitalization", "Energy modelling"] },
-  { icon: "coins", title: "Financial", items: ["CAPEX modelling", "Financial modelling", "Project finance", "Investor preparation"] },
-  { icon: "compass", title: "Strategic", items: ["Asset restructuring", "Investment strategy"] },
+  { icon: "cog", title: "Technical", items: ["Engineering", "Feasibility studies", "Energy modelling"] },
+  { icon: "coins", title: "Financial", items: ["Financial & CAPEX modelling", "Project finance", "Investor preparation"] },
+  { icon: "compass", title: "Strategic", items: ["Asset restructuring", "Investment strategy", "Transaction support"] },
 ];
 
 export const DISCIPLINES = [
-  "Energy transition development", "Infrastructure development", "Industrial asset optimization",
-  "Renewable energy development", "Energy as an industrial input", "Brownfield development",
-  "Corporate & asset restructuring", "Project development", "Project finance", "Strategic investment",
+  "Energy transition development", "Industrial asset optimization", "Brownfield development", "Project finance",
 ];
 
 export const NOT_LIST = ["An engineering consultancy", "An ESCO", "A renewable-energy developer", "An infrastructure fund"];
@@ -108,7 +106,7 @@ export const MODELS = [
 export const FOCUS = [
   { icon: "bolt", title: "Energy", text: "Renewables, storage & electrification" },
   { icon: "factory", title: "Industrial infrastructure", text: "Modernizing and repurposing industrial sites" },
-  { icon: "leaf", title: "Sustainable technologies", text: "Lower-carbon, future-ready assets" },
+  { icon: "leaf", title: "P2X", text: "Turning renewable power into hydrogen, e-fuels & heat" },
 ];
 
 export const CONNECT = [
@@ -191,5 +189,11 @@ export const COUNTRY_REGIONS = {
   Hungary: "Central Europe",
   Serbia: "Southeast Europe",
   "Türkiye": "Europe & Asia",
+  Jordan: "Middle East",
+  Yemen: "Arabian Peninsula",
+  Azerbaijan: "South Caucasus",
+  Turkmenistan: "Central Asia",
+  Uzbekistan: "Central Asia",
   Kazakhstan: "Central Asia",
+  Kyrgyzstan: "Central Asia",
 };

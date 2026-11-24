@@ -4,6 +4,14 @@ import logo from "../../assets/en-dev-logo.png";
 // meet at the centre and shake hands — all inside the EN-DEV frame.
 // Pure CSS keyframes (see .deal-* in global.css); highlights the visitor's chosen side.
 
+const CENTER_X = 240;
+const TRACK_Y = 190;
+const PARTY_OFFSET = 150;
+const PARTY_RADIUS = 34;
+const MEETING_RADIUS = 40;
+const TRAVEL = 64;
+const CONNECTOR_LENGTH = PARTY_OFFSET - PARTY_RADIUS - MEETING_RADIUS;
+
 const ICON_INVESTOR = (
   <>
     <path d="M3 17l6-6 4 4 8-8" />
@@ -30,33 +38,47 @@ const ICON_HANDSHAKE = (
 function Party({ className, cx, kind, label, icon, active }) {
   return (
     <g className={`deal-party ${className}${active ? " focus" : ""}`}>
-      <circle className="deal-body" cx={cx} cy="190" r="34" />
-      <svg x={cx - 13} y="177" width="26" height="26" viewBox="0 0 24 24" className="deal-icon">{icon}</svg>
+      <circle className="deal-body" cx={cx} cy={TRACK_Y} r={PARTY_RADIUS} />
+      <svg x={cx - 13} y={TRACK_Y - 13} width="26" height="26" viewBox="0 0 24 24" className="deal-icon">{icon}</svg>
       <text x={cx} y="248" textAnchor="middle" className="deal-kind">{kind}</text>
       <text x={cx} y="266" textAnchor="middle" className="deal-label">{label}</text>
     </g>
   );
 }
 
+function Connector({ side }) {
+  const direction = side === "left" ? -1 : 1;
+  const from = CENTER_X + direction * (PARTY_OFFSET - PARTY_RADIUS);
+  const to = CENTER_X + direction * MEETING_RADIUS;
+
+  return (
+    <g className={`deal-connector deal-connector-${side}`}>
+      <line className="deal-track" x1={from} y1={TRACK_Y} x2={to} y2={TRACK_Y} />
+      <line className="deal-progress" x1={from} y1={TRACK_Y} x2={to} y2={TRACK_Y} />
+    </g>
+  );
+}
+
 export default function RoutingDiagram({ persona }) {
   return (
-    <figure className="flow-card" aria-label="Animation: an investor and a project owner meet and shake hands on a deal inside EN-DEV">
-      <svg viewBox="0 0 480 360" aria-hidden="true" className="flow-svg">
-        {/* EN-DEV frame — everything happens inside the company */}
-        <rect className="deal-frame" x="12" y="28" width="456" height="318" rx="20" />
-        <rect x="170" y="14" width="140" height="30" rx="15" fill="#fff" stroke="#DCE4EE" />
-        <image href={logo} x="190" y="19" width="100" height="20" preserveAspectRatio="xMidYMid meet" />
+    <figure
+      className="flow-card deal-card"
+      style={{ "--deal-travel": `${TRAVEL}px`, "--deal-connector-scale": (CONNECTOR_LENGTH - TRAVEL) / CONNECTOR_LENGTH }}
+      aria-label="Animation: an investor and a project owner meet and shake hands on a deal inside EN-DEV"
+    >
+      {/* EN-DEV frame — everything happens inside the company. Drawn in CSS so it can stretch to the hero's height. */}
+      <span className="deal-logo"><img src={logo} alt="" /></span>
+      <svg viewBox="30 135 420 200" aria-hidden="true" className="flow-svg">
 
-        {/* Track and progress lines */}
-        <line className="deal-track" x1="90" y1="190" x2="390" y2="190" />
-        <line className="deal-progress deal-progress-l" x1="90" y1="190" x2="170" y2="190" />
-        <line className="deal-progress deal-progress-r" x1="390" y1="190" x2="310" y2="190" />
+        {/* Connectors shorten in sync with the parties, anchored at the meeting ring. */}
+        <Connector side="left" />
+        <Connector side="right" />
 
         {/* Meeting point */}
-        <circle className="deal-meet" cx="240" cy="190" r="40" />
+        <circle className="deal-meet" cx={CENTER_X} cy={TRACK_Y} r={MEETING_RADIUS} />
 
-        <Party className="deal-investor" cx={90} kind="CAPITAL" label="Investor" icon={ICON_INVESTOR} active={persona === "investor"} />
-        <Party className="deal-owner" cx={390} kind="PROJECT" label="Project owner" icon={ICON_OWNER} active={persona === "owner"} />
+        <Party className="deal-investor" cx={CENTER_X - PARTY_OFFSET} kind="CAPITAL" label="Investor" icon={ICON_INVESTOR} active={persona === "investor"} />
+        <Party className="deal-owner" cx={CENTER_X + PARTY_OFFSET} kind="PROJECT" label="Project owner" icon={ICON_OWNER} active={persona === "owner"} />
 
         {/* Handshake */}
         <circle className="deal-ripple" cx="240" cy="190" r="28" />

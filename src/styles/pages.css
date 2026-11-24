@@ -4,6 +4,8 @@
 .page-hero h1 { font-size: clamp(38px, 4.7vw, 66px); text-wrap: balance; }
 .page-hero .hero-actions { margin-bottom: 0; }
 .page-hero .eyebrow { color: var(--logo-blue); }
+/* About hero: the intro text runs the full width of the title */
+.about-page .page-hero .lead { max-width: none; text-wrap: pretty; }
 .page-section { padding: 88px 0; }
 .page-section-white { background: var(--white); border-block: 1px solid var(--line); }
 .page-cta { padding-top: 80px; }
@@ -111,6 +113,10 @@
 .discipline-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 28px; font-size: 14px; color: var(--muted); }
 .discipline-footer .loc-link { margin: 0; flex-shrink: 0; }
 .themed-page .sit-grid .section-head { margin-bottom: 0; }
+/* About "Where we connect": four disciplines in a 2 x 2 grid beside the heading, all one colour */
+.chip-cloud.chip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.chip-cloud.chip-grid li,
+.chip-cloud.chip-grid li:nth-child(n) { display: flex; align-items: center; justify-content: center; text-align: center; border-radius: 16px; line-height: 1.35; padding: 18px 14px; font-size: 15px; background: var(--light-blue); border-color: #AFC6E4; }
 .themed-page .chip-cloud li { transition: border-color .25s, transform .25s; }
 .themed-page .chip-cloud li:hover { transform: translateY(-3px); border-color: var(--logo-blue); }
 .participation-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }

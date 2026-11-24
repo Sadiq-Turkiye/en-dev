@@ -1,6 +1,5 @@
 import logo from "../assets/en-dev-logo.png";
 import { ICON_PATHS } from "./Icon.jsx";
-import { MEMBERS } from "../data/site.js";
 
 function DiagramIcon({ name, x, y, size = 26 }) {
   return <svg x={x - size / 2} y={y - size / 2} width={size} height={size} viewBox="0 0 24 24" className="blueprint-icon">{ICON_PATHS[name]}</svg>;
@@ -53,6 +52,9 @@ function ServicesDiagram() {
   );
 }
 
+// The people EN-DEV brings together on the About page
+const ABOUT_ROLES = ["Project owner", "Investor", "Entrepreneur", "Consultant"];
+
 function AboutDiagram() {
   const positions = [[105, 108], [375, 108], [105, 238], [375, 238]];
   return (
@@ -60,7 +62,7 @@ function AboutDiagram() {
       <circle className="blueprint-orbit" cx="240" cy="175" r="82" />
       <path className="blueprint-track" d="M105 108L240 175L375 108M105 238L240 175L375 238M240 212V290" />
       <path className="blueprint-flow" d="M105 108L240 175M375 108L240 175M105 238L240 175M375 238L240 175V290" />
-      {MEMBERS.map((member, i) => (
+      {ABOUT_ROLES.map((member, i) => (
         <g className="blueprint-member" key={member} style={{ "--i": i }}>
           <rect x={positions[i][0] - 66} y={positions[i][1] - 22} width="132" height="44" rx="12" />
           <text className="blueprint-label" x={positions[i][0]} y={positions[i][1] + 5}>{member}</text>
@@ -69,7 +71,7 @@ function AboutDiagram() {
       <g className="blueprint-core">
         <rect x="182" y="140" width="116" height="70" rx="18" />
         <DiagramIcon name="partner" x={240} y={163} />
-        <text x="240" y="195">One platform</text>
+        <text x="240" y="195">Future builder</text>
       </g>
       <Result label="Shared expertise. Integrated delivery." />
     </>
@@ -79,7 +81,7 @@ function AboutDiagram() {
 const DIAGRAMS = {
   home: { component: HomeDiagram, label: "EN-DEV develops industrial assets and connects them with capital to create investment-ready opportunities.", caption: "From untapped potential to a developed opportunity." },
   services: { component: ServicesDiagram, label: "Understand the asset, develop the project, and connect it with capital in one integrated development journey.", caption: "Technical, commercial and financial expertise, connected." },
-  about: { component: AboutDiagram, label: `${MEMBERS.join(", ")} contribute their expertise to the EN-DEV platform, alongside other specialist companies.`, caption: "Specialist companies. One shared direction." },
+  about: { component: AboutDiagram, label: `${ABOUT_ROLES.join(", ")} come together around EN-DEV as the future builder.`, caption: "" },
 };
 
 export default function BlueprintDiagram({ variant }) {
@@ -92,7 +94,7 @@ export default function BlueprintDiagram({ variant }) {
         <image href={logo} x="190" y="19" width="100" height="20" preserveAspectRatio="xMidYMid meet" />
         <Diagram />
       </svg>
-      <figcaption>{caption}</figcaption>
+      {caption && <figcaption>{caption}</figcaption>}
     </figure>
   );
 }
