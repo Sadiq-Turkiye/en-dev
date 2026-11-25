@@ -12,6 +12,8 @@
 .page-section-white { background: var(--white); border-block: 1px solid var(--line); }
 .page-cta { padding-top: 80px; }
 .enquiry-zone { padding: 72px 0 96px; }
+/* About: empty slot kept for upcoming content */
+.about-reserved .container { min-height: 280px; }
 .enquiry-zone .pmap-cta { margin-top: 0; }
 @media (max-width: 960px) { .enquiry-zone { padding: 52px 0 64px; } }
 .themed-page .section-head { max-width: 760px; margin-bottom: 36px; }

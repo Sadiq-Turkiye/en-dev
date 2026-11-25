@@ -37,9 +37,14 @@ export default function About() {
         </div>
       </section>
 
-      <section className="page-section page-section-white" aria-labelledby="about-models">
+      {/* 03: reserved for new content (replaces "Where we connect"). Left intentionally empty. */}
+      <section className="page-section page-section-white about-reserved" aria-hidden="true">
+        <div className="container" />
+      </section>
+
+      <section className="page-section" aria-labelledby="about-models">
         <div className="container reveal">
-          <SectionHeading number="03" eyebrow="How we participate" id="about-models" title="Different models, aligned interests" />
+          <SectionHeading number="04" eyebrow="How we participate" id="about-models" title="Different models, aligned interests" />
           <ul className="participation-grid stagger">{MODELS.map((model, i) => <li key={model.title} style={{ "--i": i }}><span className="participation-number">0{i + 1}</span><h3>{model.title}</h3><p>{model.text}</p></li>)}</ul>
         </div>
       </section>
