@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="themed-page home-page">
       <PageHero
-        title={<>Industrial potential.<br /><span className="accent">Developed into value.</span></>}
+        title={<>Industrial potential<br /><span className="accent">Developed into value</span></>}
         description="We find the hidden value in industrial assets, develop energy-transition opportunities, and bring together the expertise and capital to realize them."
         actions={<><Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Let’s develop your asset <Icon name="arrow" /></Link><Link to="/portfolio" className="btn btn-ghost btn-lg">Explore our portfolio</Link></>}
       ><BlueprintDiagram variant="home" /></PageHero>
@@ -23,7 +23,7 @@ export default function Home() {
       <section className="page-section page-section-white" aria-labelledby="home-value">
         <div className="container value-grid reveal">
           <div>
-            <SectionHeading number="01" eyebrow="What we do" id="home-value" title="A new chapter for industrial assets." />
+            <SectionHeading number="01" eyebrow="What we do" id="home-value" title="A new chapter for industrial assets" />
             <p className="section-copy">{DEFINITION}</p>
             <Link to="/about" className="loc-link">Get to know EN-DEV <Icon name="arrow" /></Link>
           </div>
@@ -38,7 +38,7 @@ export default function Home() {
       <section className="page-section" aria-labelledby="home-services">
         <div className="container reveal">
           <div className="section-heading-row">
-            <SectionHeading number="02" eyebrow="Connected expertise" id="home-services" title="The right expertise. Around one asset." />
+            <SectionHeading number="02" eyebrow="Connected expertise" id="home-services" title="The right expertise, around one asset" />
             <Link to="/services" className="loc-link">Explore all services <Icon name="arrow" /></Link>
           </div>
           <div className="service-preview-grid stagger">
@@ -54,7 +54,7 @@ export default function Home() {
 
       <section className="page-section page-section-white" aria-labelledby="home-audiences">
         <div className="container reveal">
-          <SectionHeading number="03" eyebrow="Who we bring together" id="home-audiences" title="Your asset. Your capital. Our shared opportunity." />
+          <SectionHeading number="03" eyebrow="Who we bring together" id="home-audiences" title="Your asset, your capital, our shared opportunity" />
           <div className="aud-grid stagger">
             {AUDIENCES.map((audience, i) => (
               <article key={audience.key} className={`aud-card aud-${audience.key}`} style={{ "--i": i }}>
@@ -71,7 +71,7 @@ export default function Home() {
         <div className="region-band-top">
           <div className="container region-band-head reveal">
             <div>
-              <h2 id="home-regions">Find out about our projects in your region.</h2>
+              <h2 id="home-regions">Find out about our projects in your region</h2>
               <p>EN-DEV develops industrial energy-transition projects across Europe, the Middle East and Central Asia. Choose a country to get in touch with our team.</p>
             </div>
             <LineArt name="globehand" className="region-band-art" />
@@ -92,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      <PageCTA eyebrow={`Active in ${ORDERED_COUNTRIES.length} countries`} title="Discover where potential becomes a project." label="Our portfolio" to="/portfolio" />
+      <PageCTA eyebrow={`Active in ${ORDERED_COUNTRIES.length} countries`} title="Discover where potential becomes a project" label="Our portfolio" to="/portfolio" />
     </div>
   );
 }
