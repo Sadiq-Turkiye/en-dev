@@ -1,4 +1,3 @@
-import Icon from "../Icon.jsx";
 import logo from "../../assets/en-dev-logo.png";
 
 // Hero illustration: an industrial site that gains solar, storage and wind,
@@ -9,8 +8,6 @@ import logo from "../../assets/en-dev-logo.png";
 const roofPoint = (u, v) => [168 + 128 * u + 98 * v, 150 - 46 * u + 39 * v];
 const roofPanel = (u, v) => [roofPoint(u, v), roofPoint(u + .21, v), roofPoint(u + .21, v + .29), roofPoint(u, v + .29)].map((point) => point.join(",")).join(" ");
 const PANELS = Array.from({ length: 6 }, (_, index) => ({ u: .13 + (index % 3) * .25, v: .14 + Math.floor(index / 3) * .36 }));
-
-const STEPS = ["Industrial asset", "Energy transition", "Investable project"];
 
 function Blade({ rotate }) {
   return (
@@ -38,16 +35,6 @@ export default function PortfolioScene() {
               <stop offset="1" stopColor="#174C82" />
             </linearGradient>
           </defs>
-
-          {/* Sun */}
-          <g className="ps-sun">
-            <g className="ps-rays">
-              {Array.from({ length: 8 }, (_, i) => (
-                <line key={i} x1="312" y1="20" x2="312" y2="25" transform={`rotate(${i * 45} 312 44)`} />
-              ))}
-            </g>
-            <circle cx="312" cy="44" r="13" className="ps-sun-core" />
-          </g>
 
           {/* Ground */}
           <ellipse cx="280" cy="262" rx="258" ry="8" className="ps-shadow" />
@@ -132,15 +119,6 @@ export default function PortfolioScene() {
         </svg>
       </div>
 
-      <ol className="ps-steps">
-        {STEPS.map((s, i) => (
-          <li key={s} style={{ "--i": i }}>
-            <span className="ps-step-num">{String(i + 1).padStart(2, "0")}</span>
-            <span className="ps-step-label">{s}</span>
-            {i < STEPS.length - 1 && <Icon name="arrow" className="ps-step-arrow" />}
-          </li>
-        ))}
-      </ol>
     </figure>
   );
 }
