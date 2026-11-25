@@ -8,7 +8,7 @@ import EnquiryBox from "../components/EnquiryBox.jsx";
 import DevelopmentProcess from "../components/DevelopmentProcess.jsx";
 import { SERVICES } from "../data/services.js";
 import LineArt from "../components/LineArt.jsx";
-import { STRUCTURES, TARGET_ASSETS } from "../data/site.js";
+import { STRUCTURES, TARGET_ASSETS, MODELS } from "../data/site.js";
 
 const PARTNERSHIP = [
   { art: "casefile", title: "A clear development case", text: "for your site, plant or industrial energy asset" },
@@ -108,6 +108,13 @@ export default function Services() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="page-section" aria-labelledby="models-title">
+        <div className="container reveal">
+          <SectionHeading number="06" eyebrow="How we participate" id="models-title" title="Different models, aligned interests" />
+          <ul className="participation-grid stagger">{MODELS.map((model, i) => <li key={model.title} style={{ "--i": i }}><span className="participation-number">0{i + 1}</span><h3>{model.title}</h3><p>{model.text}</p></li>)}</ul>
         </div>
       </section>
 

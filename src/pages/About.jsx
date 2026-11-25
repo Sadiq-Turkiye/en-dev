@@ -4,7 +4,7 @@ import Icon from "../components/Icon.jsx";
 import PageHero from "../components/PageHero.jsx";
 import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import { DEFINITION, PILLARS, MODELS } from "../data/site.js";
+import { DEFINITION, PILLARS } from "../data/site.js";
 
 export default function About() {
   useEffect(() => { document.title = "About Us | EN-DEV"; }, []);
@@ -42,12 +42,6 @@ export default function About() {
         <div className="container" />
       </section>
 
-      <section className="page-section" aria-labelledby="about-models">
-        <div className="container reveal">
-          <SectionHeading number="04" eyebrow="How we participate" id="about-models" title="Different models, aligned interests" />
-          <ul className="participation-grid stagger">{MODELS.map((model, i) => <li key={model.title} style={{ "--i": i }}><span className="participation-number">0{i + 1}</span><h3>{model.title}</h3><p>{model.text}</p></li>)}</ul>
-        </div>
-      </section>
 
     </div>
   );
