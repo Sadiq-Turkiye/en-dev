@@ -15,7 +15,6 @@ export default function Home() {
   return (
     <div className="themed-page home-page">
       <PageHero
-        eyebrow="Industrial energy transition & asset development"
         title={<>Industrial potential.<br /><span className="accent">Developed into value.</span></>}
         description="We find the hidden value in industrial assets, develop energy-transition opportunities, and bring together the expertise and capital to realize them."
         actions={<><Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Let’s develop your asset <Icon name="arrow" /></Link><Link to="/portfolio" className="btn btn-ghost btn-lg">Explore our portfolio</Link></>}

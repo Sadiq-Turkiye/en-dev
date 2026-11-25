@@ -21,7 +21,6 @@ export default function Services() {
   return (
     <div className="themed-page services-page">
       <PageHero
-        eyebrow="Our services"
         title={<>From possibility<br />to <span className="accent">a developed project.</span></>}
         description="Industrial insight, energy expertise and investment thinking, working together. We connect every part of the development journey around your asset."
         actions={<><Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Talk about your project <Icon name="arrow" /></Link><a href="#services" className="btn btn-ghost btn-lg">Explore our services</a></>}

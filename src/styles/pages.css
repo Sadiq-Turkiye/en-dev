@@ -1,5 +1,6 @@
 /* Home, Services and About share the Contact page's brand tokens and surfaces. */
-.page-hero .hero-inner { align-items: center; }
+/* Titles start at the same height as Contact Us / Our Portfolio (top-aligned, no eyebrow). */
+.page-hero .hero-inner { align-items: start; }
 .page-hero .hero-copy { min-width: 0; animation: page-enter .7s var(--ease) both; }
 /* Hero titles share the Contact / Portfolio size (.hero h1 in global.css). */
 .page-hero h1 { text-wrap: balance; }
