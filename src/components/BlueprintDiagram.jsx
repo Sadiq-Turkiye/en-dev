@@ -80,7 +80,7 @@ function AboutDiagram() {
 
 const DIAGRAMS = {
   home: { component: HomeDiagram, label: "EN-DEV develops industrial assets and connects them with capital to create investment-ready opportunities.", caption: "From untapped potential to a developed opportunity." },
-  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, and connect it with capital in one integrated development journey.", caption: "Technical, commercial and financial expertise, connected." },
+  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, and connect it with capital in one integrated development journey.", caption: "" },
   about: { component: AboutDiagram, label: `${ABOUT_ROLES.join(", ")} come together around EN-DEV as the future builder.`, caption: "" },
 };
 
