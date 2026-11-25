@@ -7,7 +7,14 @@ import SectionHeading from "../components/SectionHeading.jsx";
 import PageCTA from "../components/PageCTA.jsx";
 import DevelopmentProcess from "../components/DevelopmentProcess.jsx";
 import { SERVICES } from "../data/services.js";
-import { STRUCTURES, SIGNALS, TARGET_ASSETS } from "../data/site.js";
+import LineArt from "../components/LineArt.jsx";
+import { STRUCTURES, TARGET_ASSETS } from "../data/site.js";
+
+const PARTNERSHIP = [
+  { art: "casefile", title: "A clear development case", text: "for your site, plant or industrial energy asset" },
+  { art: "network", title: "A partnership approach", text: "bringing owners, specialists and investors together" },
+  { art: "gauge", title: "Energy-transition value", text: "from efficiency and renewables to storage and electrification" },
+];
 
 export default function Services() {
   useEffect(() => { document.title = "Our Services | EN-DEV"; }, []);
@@ -22,7 +29,7 @@ export default function Services() {
 
       <section className="page-section page-section-white" id="services" aria-labelledby="services-title">
         <div className="container reveal">
-          <SectionHeading number="01" eyebrow="What we bring" id="services-title" title="Five disciplines. One connected approach." description="Each asset needs a different mix. We bring the relevant specialists together to develop a coherent technical, commercial and investment case." />
+          <SectionHeading number="01" eyebrow="What we bring" id="services-title" className="section-head-wide" title="Five disciplines. One connected approach." description="Each asset needs a different mix. We bring the relevant specialists together to develop a coherent technical, commercial and investment case." />
           <div className="services-grid stagger">
             {SERVICES.map((service, i) => (
               <article className="service-card" id={service.id} key={service.id} style={{ "--i": i }}>
@@ -65,20 +72,18 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="page-section" aria-labelledby="sigTitle">
+      <section className="page-section" aria-labelledby="partnerTitle">
         <div className="container reveal">
-          <SectionHeading number="04" eyebrow="What we look for" id="sigTitle" title="Does your site have several of these?" />
-          <ul className="signal-grid stagger">
-            {SIGNALS.map((s, i) => (
-              <li key={s.label} className="signal" style={{ "--i": i }}>
-                <span className="signal-icon"><Icon name={s.icon} /></span>
-                <span>{s.label}</span>
+          <SectionHeading number="04" eyebrow="Working with EN-DEV" id="partnerTitle" title="A partnership built around your asset." />
+          <ul className="feature-cards stagger">
+            {PARTNERSHIP.map((f, i) => (
+              <li key={f.title} className="feature-card" style={{ "--i": i }}>
+                <LineArt name={f.art} />
+                <h3>{f.title}</h3>
+                <p>{f.text}</p>
               </li>
             ))}
           </ul>
-          <div className="signals-cta">
-            <Link to="/contact?as=owner#enquiry" className="btn btn-primary btn-lg">Tell us about your asset <Icon name="arrow" /></Link>
-          </div>
         </div>
       </section>
 

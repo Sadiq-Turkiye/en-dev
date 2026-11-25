@@ -182,3 +182,74 @@
   .page-hero .hero-copy, .blueprint-diagram, .blueprint-diagram *, .development-detail-copy { animation: none !important; }
   .themed-page .reveal, .themed-page .reveal .stagger > * { opacity: 1; transform: none; }
 }
+
+/* Services: one-line section title */
+.themed-page .section-head-wide { max-width: none; }
+.themed-page .section-head-wide h2 { text-wrap: pretty; }
+
+/* Line illustrations (two-tone) */
+.line-art { stroke: var(--logo-blue); }
+.line-art .la-accent { stroke: #5FB4E6; }
+
+/* Services: illustrated feature cards */
+.feature-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.feature-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center; padding: 44px 32px 40px;
+  background: #fff; border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow);
+  transition: border-color .25s, box-shadow .25s, transform .25s var(--ease);
+}
+.feature-card:hover { border-color: #ADC8E9; box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+.feature-card .line-art { width: 112px; height: 112px; margin-bottom: 28px; }
+.feature-card h3 { font-size: 24px; line-height: 1.25; margin-bottom: 10px; }
+.feature-card p { margin: 0; max-width: 300px; color: var(--logo-blue); font-size: 15px; font-weight: 600; line-height: 1.5; }
+
+/* Home: region band with country cards */
+.region-band { padding-bottom: 8px; }
+.region-band-top { padding: 80px 0 150px; background: linear-gradient(120deg, var(--deep-blue) 0%, #1A559A 55%, var(--logo-blue) 120%); color: #fff; }
+.region-band-head { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+.region-band-head h2 { color: #fff; font-size: clamp(30px, 3.6vw, 46px); font-weight: 400; line-height: 1.15; max-width: 720px; margin-bottom: 18px; text-wrap: balance; }
+.region-band-head p { color: rgba(255, 255, 255, .85); font-size: 16px; line-height: 1.7; max-width: 640px; margin: 0; }
+.region-band-art { flex-shrink: 0; width: 160px; height: 160px; stroke: #fff; }
+.region-band-art .la-accent { stroke: #9BE15D; }
+.region-grid { list-style: none; margin: -100px 0 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+.region-grid > li { flex: 0 1 calc((100% - 72px) / 4); }
+.region-card {
+  position: relative; display: flex; flex-direction: column; gap: 4px; height: 100%; min-height: 128px; padding: 22px 24px 24px;
+  background: #fff; border-radius: 18px; box-shadow: var(--shadow); border: 1px solid transparent;
+  transition: border-color .25s, box-shadow .25s, transform .25s var(--ease);
+}
+.region-card:hover, .region-card:focus-visible { border-color: #ADC8E9; box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.region-card-name { color: var(--logo-blue); font-size: 18px; font-weight: 700; }
+.region-card-region { color: var(--muted); font-size: 13px; }
+.region-card-arrow {
+  position: absolute; right: 18px; bottom: 18px; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  background: var(--light-blue); color: var(--logo-blue); transition: background .25s, color .25s;
+}
+.region-card-arrow svg { width: 20px; height: 20px; transition: transform .25s var(--ease); }
+.region-card:hover .region-card-arrow { background: var(--logo-blue); color: #fff; }
+.region-card:hover .region-card-arrow svg { transform: translateX(3px); }
+
+@media (max-width: 1100px) {
+  .region-grid > li { flex-basis: calc((100% - 48px) / 3); }
+}
+@media (max-width: 960px) {
+  .feature-cards { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .region-band-top { padding: 64px 0 130px; }
+  .region-band-art { width: 120px; height: 120px; }
+}
+@media (max-width: 700px) {
+  .region-band-head { flex-direction: column-reverse; align-items: flex-start; gap: 24px; }
+  .region-band-art { width: 88px; height: 88px; }
+  .region-grid { gap: 12px; }
+  .region-grid > li { flex-basis: calc((100% - 12px) / 2); }
+  .region-card { min-height: 110px; padding: 16px; }
+  .region-card-name { font-size: 16px; }
+  .region-card-arrow { width: 36px; height: 36px; right: 12px; bottom: 12px; }
+  .region-card-arrow svg { width: 16px; height: 16px; }
+}
+@media (max-width: 380px) {
+  .region-grid > li { flex-basis: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-card, .region-card, .region-card-arrow svg { transition: none; }
+}

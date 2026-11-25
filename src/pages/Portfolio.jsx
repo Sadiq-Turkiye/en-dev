@@ -15,7 +15,7 @@ const STATS = [
 function Head({ num, eyebrow, title, id }) {
   return (
     <div className="section-head">
-      <p className={`eyebrow eyebrow-line${title ? "" : " eyebrow-lg"}`} id={title ? undefined : id}><span className="eyebrow-num">{num}</span>{eyebrow}</p>
+      <p className="eyebrow eyebrow-line" id={title ? undefined : id}><span className="eyebrow-num">{num}</span>{eyebrow}</p>
       {title && <h2 id={id} className="h2">{title}</h2>}
     </div>
   );
@@ -35,7 +35,7 @@ export default function Portfolio() {
           <div className="hero-copy">
             <h1>Our Portfolio</h1>
             <p className="lead">
-              Industrial energy transition projects, developed to create long term value.
+              Industrial energy-transition projects, developed to create <strong className="accent">long-term value.</strong>
             </p>
             <div className="hero-actions">
               <Link to="/contact?as=investor" className="btn btn-primary btn-lg">Discuss an opportunity <Icon name="arrow" /></Link>
@@ -57,7 +57,7 @@ export default function Portfolio() {
       {/* FOCUS + CONNECT */}
       <section className="focus" aria-labelledby="focusTitle">
         <div className="container reveal">
-          <Head num="01" eyebrow="Focus areas" id="focusTitle" />
+          <Head num="01" eyebrow="Focus areas" id="focusTitle"/>
           <ul className="focus-grid stagger">
             {FOCUS.map((f, i) => (
               <li key={f.title} className="focus-card" style={{ "--i": i }}>
@@ -87,6 +87,14 @@ export default function Portfolio() {
         <div className="container reveal">
           <Head num="02" eyebrow="Where we work" id="mapTitle" />
           <ProjectMap />
+          <aside className="pmap-cta" aria-label="Project enquiries">
+            <span className="pmap-cta-icon"><Icon name="message" /></span>
+            <div className="pmap-cta-copy">
+              <strong>Want to know more about our projects?</strong>
+              <span>Ask us about our work in any of these countries.</span>
+            </div>
+            <Link to="/contact#enquiry" className="btn btn-primary">Know about our projects <Icon name="arrow" /></Link>
+          </aside>
         </div>
       </section>
 

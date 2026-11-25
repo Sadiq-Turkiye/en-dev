@@ -95,7 +95,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 .main-nav { display: flex; align-items: center; gap: 28px; }
 .main-nav ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .main-nav ul a {
-  position: relative; display: block; padding: 8px 14px;
+  position: relative; display: block; padding: 8px 14px; white-space: nowrap; line-height: 1.4;
   color: var(--deep-blue); font-weight: 500; font-size: 15px; border-radius: 999px;
   transition: color .2s, background .2s;
 }
@@ -823,10 +823,6 @@ a.channel-value:hover { color: var(--logo-blue); }
 .pmap-label { fill: var(--deep-blue); stroke: #fff; stroke-width: 4; paint-order: stroke; font: 600 14px Inter, sans-serif; }
 .pmap-marker.on .pmap-label { fill: var(--deep-blue); font-weight: 700; stroke-width: 5; }
 .pmap-label-line { fill: none; stroke: #6F92BC; stroke-width: 1; }
-.pmap-hub { pointer-events: none; }
-.pmap-pin { fill: var(--logo-blue); stroke: #fff; stroke-width: 1.5; filter: drop-shadow(0 2px 3px rgba(11, 45, 92, .3)); }
-.pmap-pin-core { fill: #fff; }
-.pmap-hub-label { fill: var(--muted); stroke: #fff; stroke-width: 4; paint-order: stroke; font: 600 12px Inter, sans-serif; letter-spacing: .04em; }
 .pmap-caption { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 18px 24px; background: rgba(255, 255, 255, .92); border-top: 1px solid var(--line); }
 .pmap-detail { display: flex; align-items: center; gap: 12px; }
 .pmap-detail-icon { width: 40px; height: 40px; flex-shrink: 0; display: grid; place-items: center; border-radius: 11px; background: var(--light-blue); color: var(--logo-blue); }
@@ -839,6 +835,20 @@ a.channel-value:hover { color: var(--logo-blue); }
 .pmap-legend > span { display: inline-flex; align-items: center; gap: 6px; }
 .pmap-legend-country { width: 10px; height: 10px; border-radius: 3px; background: #83AAD9; }
 .pmap-legend svg { width: 14px; height: 14px; color: var(--logo-blue); }
+.pmap-cta {
+  display: flex; align-items: center; gap: 16px; max-width: 720px; margin: 20px auto 0; padding: 16px 16px 16px 20px;
+  background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--shadow);
+}
+.pmap-cta-icon { flex-shrink: 0; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; background: var(--light-blue); color: var(--logo-blue); }
+.pmap-cta-icon svg { width: 20px; height: 20px; }
+.pmap-cta-copy { flex: 1; min-width: 0; display: grid; gap: 2px; }
+.pmap-cta-copy strong { color: var(--deep-blue); font-size: 15px; }
+.pmap-cta-copy span { color: var(--muted); font-size: 13px; }
+.pmap-cta .btn { flex-shrink: 0; }
+@media (max-width: 600px) {
+  .pmap-cta { flex-wrap: wrap; padding: 16px; }
+  .pmap-cta .btn { width: 100%; justify-content: center; }
+}
 .pmap-status { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 960px) {
   .map-zone { padding: 64px 0; }
@@ -856,8 +866,7 @@ a.channel-value:hover { color: var(--logo-blue); }
   .pmap-item-arrow { display: none; }
   .pmap-name { font-size: 12px; }
   .pmap-region { font-size: 10px; }
-  .pmap-marker:not(.on), .pmap-hub-label { display: none; }
-  .pmap-marker.on .pmap-label { font-size: 24px; stroke-width: 6; }
+  .pmap-marker:not(.on),   .pmap-marker.on .pmap-label { font-size: 24px; stroke-width: 6; }
   .pmap-caption { gap: 12px; padding: 14px; }
   .pmap-legend { width: 100%; margin-left: 0; padding-top: 10px; border-top: 1px solid var(--line); }
 }

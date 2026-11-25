@@ -5,8 +5,9 @@ import PageHero from "../components/PageHero.jsx";
 import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import PageCTA from "../components/PageCTA.jsx";
-import { MAP_COUNTRIES } from "../data/mapGeometry.js";
-import { DEFINITION, TRANSFORM, AUDIENCES } from "../data/site.js";
+import LineArt from "../components/LineArt.jsx";
+import { ORDERED_COUNTRIES } from "../components/ProjectMap.jsx";
+import { DEFINITION, TRANSFORM, AUDIENCES, COUNTRY_REGIONS } from "../data/site.js";
 import { SERVICES } from "../data/services.js";
 
 export default function Home() {
@@ -67,7 +68,32 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <PageCTA eyebrow={`Active in ${MAP_COUNTRIES.length} countries`} title="Discover where potential becomes a project." label="Our portfolio" to="/portfolio" />
+      <section className="region-band" aria-labelledby="home-regions">
+        <div className="region-band-top">
+          <div className="container region-band-head reveal">
+            <div>
+              <h2 id="home-regions">Find out about our projects in your region.</h2>
+              <p>EN-DEV develops industrial energy-transition projects across Europe, the Middle East and Central Asia. Choose a country to get in touch with our team.</p>
+            </div>
+            <LineArt name="globehand" className="region-band-art" />
+          </div>
+        </div>
+        <div className="container reveal">
+          <ul className="region-grid stagger">
+            {ORDERED_COUNTRIES.map((c, i) => (
+              <li key={c.id} style={{ "--i": i }}>
+                <Link to="/contact#enquiry" className="region-card">
+                  <span className="region-card-name">{c.name}</span>
+                  <span className="region-card-region">{COUNTRY_REGIONS[c.name]}</span>
+                  <span className="region-card-arrow" aria-hidden="true"><Icon name="arrow" /></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <PageCTA eyebrow={`Active in ${ORDERED_COUNTRIES.length} countries`} title="Discover where potential becomes a project." label="Our portfolio" to="/portfolio" />
     </div>
   );
 }

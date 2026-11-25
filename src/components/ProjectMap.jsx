@@ -1,10 +1,16 @@
 import { useState } from "react";
 import Icon from "./Icon.jsx";
-import { MAP_VIEWBOX, MAP_HUB, MAP_LAND, MAP_COUNTRIES } from "../data/mapGeometry.js";
+import { MAP_VIEWBOX, MAP_LAND, MAP_COUNTRIES } from "../data/mapGeometry.js";
 import { COUNTRY_REGIONS } from "../data/site.js";
 
-// Give the Balkans label room beside the Istanbul pin.
+// Keep the Balkans label clear of its neighbours.
 const LABEL_POSITIONS = { Serbia: { x: 366, y: 270, anchor: "end" } };
+
+// Türkiye (home market) leads the list; the rest keep their west-to-east order.
+export const ORDERED_COUNTRIES = [
+  ...MAP_COUNTRIES.filter((c) => c.name === "Türkiye"),
+  ...MAP_COUNTRIES.filter((c) => c.name !== "Türkiye"),
+];
 
 export default function ProjectMap() {
   const [selected, setSelected] = useState(null);
@@ -12,7 +18,7 @@ export default function ProjectMap() {
   const [focused, setFocused] = useState(null);
   const active = hovered ?? focused ?? selected;
   const activeCountry = MAP_COUNTRIES.find((country) => country.name === active);
-  const names = MAP_COUNTRIES.map((c) => c.name);
+  const names = ORDERED_COUNTRIES.map((c) => c.name);
 
   const selectCountry = (name) => {
     setFocused(null);
@@ -37,7 +43,7 @@ export default function ProjectMap() {
           <span className="pmap-count">{MAP_COUNTRIES.length}</span>
         </div>
         <ul className="pmap-list" aria-label="Countries where EN-DEV is active">
-          {MAP_COUNTRIES.map((c, i) => (
+          {ORDERED_COUNTRIES.map((c, i) => (
             <li key={c.id}>
               <button
                 type="button"
@@ -83,12 +89,6 @@ export default function ProjectMap() {
               </g>
             );
           })}
-          {/* Istanbul base: a map pin whose tip sits on the city */}
-          <g className="pmap-hub" transform={`translate(${MAP_HUB.x} ${MAP_HUB.y})`}>
-            <path className="pmap-pin" d="M0 0C-3-6-10-11-10-18a10 10 0 0 1 20 0C10-11 3-6 0 0Z" />
-            <circle className="pmap-pin-core" cx="0" cy="-18" r="3.6" />
-            <text x="-14" y="-14" textAnchor="end" className="pmap-hub-label">{MAP_HUB.name}</text>
-          </g>
         </svg>
         <figcaption className="pmap-caption">
           <div className="pmap-detail">
@@ -101,7 +101,6 @@ export default function ProjectMap() {
           <button type="button" className="pmap-reset" onClick={clearSelection} disabled={!selected}>Clear selection</button>
           <div className="pmap-legend">
             <span><i className="pmap-legend-country" aria-hidden="true" /> Countries of activity</span>
-            <span><Icon name="pin" /> Istanbul base</span>
           </div>
         </figcaption>
       </figure>
