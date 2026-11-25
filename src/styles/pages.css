@@ -7,7 +7,7 @@
 .page-hero .hero-actions { margin-bottom: 0; }
 .page-hero .eyebrow { color: var(--logo-blue); }
 /* About hero: the intro text runs the full width of the title */
-.about-page .page-hero .lead { max-width: none; text-wrap: pretty; text-align: justify; hyphens: auto; }
+.page-hero .lead { max-width: none; text-wrap: pretty; text-align: justify; hyphens: auto; }
 .page-section { padding: 88px 0; }
 .page-section-white { background: var(--white); border-block: 1px solid var(--line); }
 .page-cta { padding-top: 80px; }
