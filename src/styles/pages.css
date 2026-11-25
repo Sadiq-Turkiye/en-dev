@@ -17,8 +17,8 @@
 .themed-page .section-head { max-width: 760px; margin-bottom: 36px; }
 .section-description, .section-copy { font-size: 17px; line-height: 1.75; }
 .section-description { margin-top: 18px; max-width: 650px; }
-/* The platform definition and the About "Where we connect" intro read as justified blocks. */
-.section-copy, .about-page .sit-grid .section-description { text-align: justify; hyphens: auto; text-wrap: pretty; }
+/* The platform definition reads as a justified block. */
+.section-copy { text-align: justify; hyphens: auto; text-wrap: pretty; }
 .section-heading-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 36px; }
 .section-heading-row .section-head { margin-bottom: 0; max-width: 650px; }
 .section-heading-row > .loc-link { flex-shrink: 0; margin: 0 0 4px; }

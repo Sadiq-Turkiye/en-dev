@@ -4,7 +4,7 @@ import Icon from "../components/Icon.jsx";
 import PageHero from "../components/PageHero.jsx";
 import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import { DEFINITION, PILLARS, DISCIPLINES, MODELS } from "../data/site.js";
+import { DEFINITION, PILLARS, MODELS } from "../data/site.js";
 
 export default function About() {
   useEffect(() => { document.title = "About Us | EN-DEV"; }, []);
@@ -37,16 +37,9 @@ export default function About() {
         </div>
       </section>
 
-      <section className="page-section page-section-white" aria-labelledby="about-intersection">
-        <div className="container sit-grid reveal">
-          <SectionHeading number="03" eyebrow="Where we connect" id="about-intersection" title="At the intersection of industry, energy and capital" description="The opportunity often sits between sectors. Our platform connects them, combining industrial understanding with the technical and financial thinking a project needs." />
-          <ul className="chip-cloud chip-grid" aria-label="Disciplines EN-DEV combines">{DISCIPLINES.map((discipline) => <li key={discipline}>{discipline}</li>)}</ul>
-        </div>
-      </section>
-
-      <section className="page-section" aria-labelledby="about-models">
+      <section className="page-section page-section-white" aria-labelledby="about-models">
         <div className="container reveal">
-          <SectionHeading number="04" eyebrow="How we participate" id="about-models" title="Different models, aligned interests" />
+          <SectionHeading number="03" eyebrow="How we participate" id="about-models" title="Different models, aligned interests" />
           <ul className="participation-grid stagger">{MODELS.map((model, i) => <li key={model.title} style={{ "--i": i }}><span className="participation-number">0{i + 1}</span><h3>{model.title}</h3><p>{model.text}</p></li>)}</ul>
         </div>
       </section>
