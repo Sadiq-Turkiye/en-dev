@@ -35,7 +35,7 @@ export default function Portfolio() {
           <div className="hero-copy">
             <h1>Our Portfolio</h1>
             <p className="lead">
-              Industrial energy-transition projects, developed to create <strong className="accent">long-term value.</strong>
+              Industrial energy-transition projects, developed to create long-term value.
             </p>
             <div className="hero-actions">
               <Link to="/contact?as=investor" className="btn btn-primary btn-lg">Discuss an opportunity <Icon name="arrow" /></Link>
