@@ -1,3 +1,4 @@
+import DashedFrame from "../DashedFrame.jsx";
 import logo from "../../assets/en-dev-logo.png";
 
 // Hero illustration: an industrial site that gains solar, storage and wind,
@@ -22,6 +23,7 @@ function Blade({ rotate }) {
 export default function PortfolioScene() {
   return (
     <figure className="ps" aria-label="Illustration: an industrial site gains solar panels, battery storage and wind power, and its asset value rises until it is investment-ready">
+      <DashedFrame />
       <span className="deal-logo"><img src={logo} alt="" /></span>
       <div className="ps-visual">
         <svg viewBox="0 0 560 312" className="ps-svg" aria-hidden="true">

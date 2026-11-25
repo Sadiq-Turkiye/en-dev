@@ -1,4 +1,5 @@
 import logo from "../../assets/en-dev-logo.png";
+import DashedFrame from "../DashedFrame.jsx";
 
 // "Deal" animation: an investor and a project owner travel toward each other,
 // meet at the centre and shake hands — all inside the EN-DEV frame.
@@ -67,6 +68,7 @@ export default function RoutingDiagram({ persona }) {
       aria-label="Animation: an investor and a project owner meet and shake hands on a deal inside EN-DEV"
     >
       {/* EN-DEV frame — everything happens inside the company. Drawn in CSS so it can stretch to the hero's height. */}
+      <DashedFrame />
       <span className="deal-logo"><img src={logo} alt="" /></span>
       <svg viewBox="30 135 420 200" aria-hidden="true" className="flow-svg">
 
