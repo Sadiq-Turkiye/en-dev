@@ -33,7 +33,7 @@ export default function Portfolio() {
         <div className="blueprint-grid" aria-hidden="true" />
         <div className="container hero-inner">
           <div className="hero-copy">
-            <h1>Our Portfolio</h1>
+            <h1>Real assets.<br /><span className="accent">Real transition.</span></h1>
             <p className="lead">
               Industrial energy-transition projects, developed to create long-term value.
             </p>
