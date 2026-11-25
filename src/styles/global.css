@@ -845,6 +845,29 @@ a.channel-value:hover { color: var(--logo-blue); }
 .pmap-cta-copy strong { color: var(--deep-blue); font-size: 15px; }
 .pmap-cta-copy span { color: var(--muted); font-size: 13px; }
 .pmap-cta .btn { flex-shrink: 0; }
+/* Animated: rises in after the map, a light sheen sweeps across, the icon pulses and the arrow nudges */
+.pmap-cta { position: relative; overflow: hidden; transition: border-color .25s, box-shadow .25s, transform .25s var(--ease); }
+.pmap-cta:hover { border-color: #ADC8E9; box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+.pmap-cta::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(57, 118, 196, .10) 50%, transparent 65%);
+  transform: translateX(-100%);
+}
+.pmap-cta-icon { position: relative; }
+.pmap-cta-icon::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 0 0 rgba(57, 118, 196, .45); }
+.reveal.in-view .pmap-cta { animation: pmap-cta-in .8s .35s var(--ease) both; }
+.reveal.in-view .pmap-cta::before { animation: pmap-cta-sheen 4.5s 1.4s ease-in-out infinite; }
+.reveal.in-view .pmap-cta-icon::after { animation: pmap-cta-ping 2.4s 1.2s ease-out infinite; }
+.reveal.in-view .pmap-cta .btn svg { animation: pmap-cta-nudge 2.4s 1.2s ease-in-out infinite; }
+.pmap-cta .btn:hover svg { animation: none; transform: translateX(4px); }
+@keyframes pmap-cta-in { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes pmap-cta-sheen { 0% { transform: translateX(-100%); } 45%, 100% { transform: translateX(100%); } }
+@keyframes pmap-cta-ping { 0% { box-shadow: 0 0 0 0 rgba(57, 118, 196, .45); } 70%, 100% { box-shadow: 0 0 0 12px rgba(57, 118, 196, 0); } }
+@keyframes pmap-cta-nudge { 0%, 60%, 100% { transform: none; } 30% { transform: translateX(5px); } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal.in-view .pmap-cta, .reveal.in-view .pmap-cta::before, .reveal.in-view .pmap-cta-icon::after, .reveal.in-view .pmap-cta .btn svg { animation: none; }
+  .pmap-cta { transition: none; }
+}
 @media (max-width: 600px) {
   .pmap-cta { flex-wrap: wrap; padding: 16px; }
   .pmap-cta .btn { width: 100%; justify-content: center; }
