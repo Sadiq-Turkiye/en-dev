@@ -11,6 +11,9 @@
 .page-section { padding: 88px 0; }
 .page-section-white { background: var(--white); border-block: 1px solid var(--line); }
 .page-cta { padding-top: 80px; }
+.enquiry-zone { padding: 72px 0 96px; }
+.enquiry-zone .pmap-cta { margin-top: 0; }
+@media (max-width: 960px) { .enquiry-zone { padding: 52px 0 64px; } }
 .themed-page .section-head { max-width: 760px; margin-bottom: 36px; }
 .section-description, .section-copy { font-size: 17px; line-height: 1.75; }
 .section-description { margin-top: 18px; max-width: 650px; }

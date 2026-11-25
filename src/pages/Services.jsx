@@ -4,7 +4,7 @@ import Icon from "../components/Icon.jsx";
 import PageHero from "../components/PageHero.jsx";
 import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import PageCTA from "../components/PageCTA.jsx";
+import EnquiryBox from "../components/EnquiryBox.jsx";
 import DevelopmentProcess from "../components/DevelopmentProcess.jsx";
 import { SERVICES } from "../data/services.js";
 import LineArt from "../components/LineArt.jsx";
@@ -111,7 +111,11 @@ export default function Services() {
         </div>
       </section>
 
-      <PageCTA eyebrow="Your next step" title="Let’s find the potential in your asset" label="Start the conversation" to="/contact?as=owner#enquiry" />
+      <section className="enquiry-zone" aria-label="Your next step">
+        <div className="container reveal">
+          <EnquiryBox title="Let’s find the potential in your asset" text="Tell us about your site and we’ll help identify the right starting point." label="Start the conversation" to="/contact?as=owner#enquiry" />
+        </div>
+      </section>
     </div>
   );
 }

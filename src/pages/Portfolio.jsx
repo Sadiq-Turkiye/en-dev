@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Icon from "../components/Icon.jsx";
 import CountUp from "../components/CountUp.jsx";
 import ProjectMap from "../components/ProjectMap.jsx";
+import EnquiryBox from "../components/EnquiryBox.jsx";
 import PortfolioScene from "../components/portfolio/PortfolioScene.jsx";
 import { FOCUS, CONNECT } from "../data/site.js";
 
@@ -87,14 +88,7 @@ export default function Portfolio() {
         <div className="container reveal">
           <Head num="02" eyebrow="Where we work" id="mapTitle" />
           <ProjectMap />
-          <aside className="pmap-cta" aria-label="Project enquiries">
-            <span className="pmap-cta-icon"><Icon name="message" /></span>
-            <div className="pmap-cta-copy">
-              <strong>Want to know more about our projects?</strong>
-              <span>Ask us about our work in any of these countries.</span>
-            </div>
-            <Link to="/contact#enquiry" className="btn btn-primary">Know about our projects <Icon name="arrow" /></Link>
-          </aside>
+          <EnquiryBox title="Want to know more about our projects?" text="Ask us about our work in any of these countries." label="Know about our projects" to="/contact#enquiry" />
         </div>
       </section>
 
