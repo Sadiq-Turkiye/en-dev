@@ -329,7 +329,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 /* =========================================================
    CONTACT ZONE
    ========================================================= */
-.contact-zone { padding: 96px 0 40px; }
+/* Same hero edge as the other pages: a thin line, then a white section. */
+.contact-zone { padding: 96px 0 40px; background: var(--white); border-top: 1px solid var(--line); }
 .contact-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: 40px; align-items: start; }
 @media (max-width: 1000px) { .contact-grid { grid-template-columns: 1fr; } }
 
