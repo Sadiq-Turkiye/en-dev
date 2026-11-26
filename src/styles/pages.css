@@ -41,7 +41,6 @@
 .blueprint-node-ring { fill: var(--light-blue); stroke: none; opacity: .55; transform-box: fill-box; transform-origin: center; animation: blueprint-pulse 4.8s ease-in-out infinite; animation-delay: calc(var(--i, 0) * -1.6s); }
 .blueprint-icon { color: var(--deep-blue); stroke-width: 1.8; }
 .blueprint-label { fill: var(--deep-blue); stroke: none; font: 600 13px Inter, sans-serif; text-anchor: middle; }
-.blueprint-step { fill: var(--logo-blue); stroke: none; font: 600 10px Inter, sans-serif; letter-spacing: .12em; text-anchor: middle; }
 .blueprint-caption { fill: var(--muted); stroke: none; font: 400 10px Inter, sans-serif; text-anchor: middle; }
 .blueprint-core > rect { fill: var(--deep-blue); stroke: none; }
 .blueprint-core .blueprint-icon { color: #fff; }

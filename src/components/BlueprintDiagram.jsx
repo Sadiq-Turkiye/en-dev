@@ -58,10 +58,7 @@ function ServicesDiagram() {
       <path className="blueprint-flow" d={`M72 ${y}H408`} />
       <path className="blueprint-flow" d={`M72 ${join}H408M240 ${join}V290`} />
       {SERVICE_STEPS.map((s, i) => (
-        <g key={s.label}>
-          <text className="blueprint-step" x={s.x} y={y - 50}>{String(i + 1).padStart(2, "0")}</text>
-          <Node x={s.x} y={y} icon={s.icon} label={s.label} caption={s.caption} index={i} />
-        </g>
+        <Node key={s.label} x={s.x} y={y} icon={s.icon} label={s.label} caption={s.caption} index={i} />
       ))}
       <Result label="One integrated development journey" />
     </>
