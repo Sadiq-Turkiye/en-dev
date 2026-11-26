@@ -39,8 +39,7 @@ function HomeDiagram() {
   );
 }
 
-// Four stages in one row; short drops under each stage join into a single line
-// that leads to the shared result.
+// Four stages in one row, joined by a single flowing line.
 const SERVICE_STEPS = [
   { x: 72, icon: "gauge", label: "Understand", caption: "Find the opportunity" },
   { x: 184, icon: "cog", label: "Develop", caption: "Build the project" },
@@ -49,18 +48,14 @@ const SERVICE_STEPS = [
 ];
 
 function ServicesDiagram() {
-  const y = 150;
-  const join = 254;
-  const drops = SERVICE_STEPS.map((s) => `M${s.x} 238V${join}`).join("");
+  const y = 172; // centred in the frame now that there is no result pill
   return (
     <>
-      <path className="blueprint-track" d={`M72 ${y}H408${drops}M72 ${join}H408M240 ${join}V290`} />
+      <path className="blueprint-track" d={`M72 ${y}H408`} />
       <path className="blueprint-flow" d={`M72 ${y}H408`} />
-      <path className="blueprint-flow" d={`M72 ${join}H408M240 ${join}V290`} />
       {SERVICE_STEPS.map((s, i) => (
         <Node key={s.label} x={s.x} y={y} icon={s.icon} label={s.label} caption={s.caption} index={i} />
       ))}
-      <Result label="One integrated development journey" />
     </>
   );
 }
@@ -93,7 +88,7 @@ function AboutDiagram() {
 
 const DIAGRAMS = {
   home: { component: HomeDiagram, label: "EN-DEV develops industrial assets and connects them with capital to create investment-ready opportunities.", caption: "" },
-  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, search for the right investors and connect it with capital in one integrated development journey.", caption: "" },
+  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, search for the right investors and connect it with capital.", caption: "" },
   about: { component: AboutDiagram, label: `${ABOUT_ROLES.join(", ")} come together around EN-DEV as the future builder.`, caption: "" },
 };
 
