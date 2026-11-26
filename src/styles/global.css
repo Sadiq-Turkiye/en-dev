@@ -280,13 +280,17 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round
 @media (max-width: 600px) {
   .deal-card .deal-kind { font-size: 11px; }
   .deal-card .deal-label { font-size: 16px; }
-  /* Phone: show the diagram between the intro text and the buttons. */
-  .contact-hero .hero-inner { gap: 0; }
-  .contact-hero .hero-copy { display: contents; }
-  .contact-hero .hero-copy > h1 { order: 1; }
-  .contact-hero .hero-copy > .lead { order: 2; margin-bottom: 36px; }
-  .contact-hero .hero-inner > .deal-card { order: 3; margin-bottom: 32px; }
-  .contact-hero .hero-copy > .hero-actions { order: 4; }
+}
+/* Phone, every page hero: title, intro text, then the diagram, then the buttons (and stats). */
+@media (max-width: 600px) {
+  .hero .hero-inner { gap: 0; }
+  .hero .hero-copy { display: contents; }
+  .hero .hero-copy > .eyebrow { order: 0; }
+  .hero .hero-copy > h1 { order: 1; }
+  .hero .hero-copy > .lead { order: 2; margin-bottom: 36px; }
+  .hero .hero-inner > :not(.hero-copy) { order: 3; margin-bottom: 32px; }
+  .hero .hero-copy > .hero-actions { order: 4; }
+  .hero .hero-copy > .hero-stats { order: 5; }
 }
 
 /* =========================================================
