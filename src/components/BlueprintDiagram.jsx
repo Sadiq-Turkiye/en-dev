@@ -39,14 +39,30 @@ function HomeDiagram() {
   );
 }
 
+// Four stages in one row; short drops under each stage join into a single line
+// that leads to the shared result.
+const SERVICE_STEPS = [
+  { x: 72, icon: "gauge", label: "Understand", caption: "Find the opportunity" },
+  { x: 184, icon: "cog", label: "Develop", caption: "Build the project" },
+  { x: 296, icon: "search", label: "Investor search", caption: "Find matching investors" },
+  { x: 408, icon: "coins", label: "Connect", caption: "Bring in capital" },
+];
+
 function ServicesDiagram() {
+  const y = 150;
+  const join = 254;
+  const drops = SERVICE_STEPS.map((s) => `M${s.x} 238V${join}`).join("");
   return (
     <>
-      <path className="blueprint-track" d="M92 155H432V263H240V290" />
-      <path className="blueprint-flow" d="M92 155H432V263H240V290" />
-      <Node x={92} y={155} icon="gauge" label="Understand" caption="Find the opportunity" />
-      <Node x={240} y={155} icon="cog" label="Develop" caption="Build the project" index={1} />
-      <Node x={388} y={155} icon="coins" label="Connect" caption="Bring in capital" index={2} />
+      <path className="blueprint-track" d={`M72 ${y}H408${drops}M72 ${join}H408M240 ${join}V290`} />
+      <path className="blueprint-flow" d={`M72 ${y}H408`} />
+      <path className="blueprint-flow" d={`M72 ${join}H408M240 ${join}V290`} />
+      {SERVICE_STEPS.map((s, i) => (
+        <g key={s.label}>
+          <text className="blueprint-step" x={s.x} y={y - 50}>{String(i + 1).padStart(2, "0")}</text>
+          <Node x={s.x} y={y} icon={s.icon} label={s.label} caption={s.caption} index={i} />
+        </g>
+      ))}
       <Result label="One integrated development journey" />
     </>
   );
@@ -80,7 +96,7 @@ function AboutDiagram() {
 
 const DIAGRAMS = {
   home: { component: HomeDiagram, label: "EN-DEV develops industrial assets and connects them with capital to create investment-ready opportunities.", caption: "" },
-  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, and connect it with capital in one integrated development journey.", caption: "" },
+  services: { component: ServicesDiagram, label: "Understand the asset, develop the project, search for the right investors and connect it with capital in one integrated development journey.", caption: "" },
   about: { component: AboutDiagram, label: `${ABOUT_ROLES.join(", ")} come together around EN-DEV as the future builder.`, caption: "" },
 };
 

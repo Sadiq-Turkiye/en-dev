@@ -5,6 +5,7 @@ const PATHS = {
   check: <path d="M20 6 9 17l-5-5" />,
   message: <><path d="M4 5h16v11H8l-4 4z" /><path d="M8 9h8M8 12h5" /></>,
   route: <><circle cx="5" cy="12" r="2" /><circle cx="19" cy="6" r="2" /><circle cx="19" cy="18" r="2" /><path d="M7 12h4l6-6M11 12l6 6" /></>,
+  search: <><circle cx="10.5" cy="10.5" r="6.5" /><path d="m20 20-4.9-4.9" /></>,
   investor: <><path d="M3 17l6-6 4 4 8-8" /><path d="M15 7h6v6" /></>,
   owner: <><path d="M3 21h18M5 21V8l7-5 7 5v13" /><path d="M9 21v-6h6v6" /></>,
   partner: <><circle cx="8" cy="8" r="3" /><circle cx="16" cy="8" r="3" /><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M12 15.5c1-1 2.4-1.5 4-1.5 3.3 0 6 2.7 6 6" /></>,

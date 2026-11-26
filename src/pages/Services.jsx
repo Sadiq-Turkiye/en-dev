@@ -4,11 +4,11 @@ import Icon from "../components/Icon.jsx";
 import PageHero from "../components/PageHero.jsx";
 import BlueprintDiagram from "../components/BlueprintDiagram.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
-import EnquiryBox from "../components/EnquiryBox.jsx";
+import PageCTA from "../components/PageCTA.jsx";
 import DevelopmentProcess from "../components/DevelopmentProcess.jsx";
 import { SERVICES } from "../data/services.js";
 import LineArt from "../components/LineArt.jsx";
-import { STRUCTURES, TARGET_ASSETS, MODELS } from "../data/site.js";
+import { STRUCTURES, TARGET_ASSETS } from "../data/site.js";
 
 const PARTNERSHIP = [
   { art: "casefile", title: "A clear development case", text: "for your site, plant or industrial energy asset" },
@@ -28,7 +28,7 @@ export default function Services() {
 
       <section className="page-section page-section-white" id="services" aria-labelledby="services-title">
         <div className="container reveal">
-          <SectionHeading number="01" eyebrow="What we bring" id="services-title" className="section-head-wide" title="Five disciplines, one connected approach" description="Each asset needs a different mix. We bring the relevant specialists together to develop a coherent technical, commercial and investment case." />
+          <SectionHeading number="01" eyebrow="What we bring" id="services-title" className="section-head-wide" title="Five disciplines. One connected approach." description="Each asset needs a different mix. We bring the relevant specialists together to develop a coherent technical, commercial and investment case." />
           <div className="services-grid stagger">
             {SERVICES.map((service, i) => (
               <article className="service-card" id={service.id} key={service.id} style={{ "--i": i }}>
@@ -49,14 +49,14 @@ export default function Services() {
 
       <section className="page-section" id="development" aria-labelledby="development-title">
         <div className="container reveal">
-          <SectionHeading number="02" eyebrow="How we work" id="development-title" title="A clear path from asset to opportunity" description="Explore the seven stages of our development process. Select a stage to see what it involves." />
+          <SectionHeading number="02" eyebrow="How we work" id="development-title" title="A clear path from asset to opportunity." description="Explore the seven stages of our development process. Select a stage to see what it involves." />
           <DevelopmentProcess />
         </div>
       </section>
 
       <section className="page-section page-section-white" aria-labelledby="assetTitle">
         <div className="container reveal">
-          <SectionHeading number="03" eyebrow="What we develop" id="assetTitle" title="Four types of industrial assets" />
+          <SectionHeading number="03" eyebrow="What we develop" id="assetTitle" title="Four types of industrial assets." />
           <ul className="asset-grid stagger">
             {TARGET_ASSETS.map((a, i) => (
               <li key={a.tag} className="asset-card" style={{ "--i": i }}>
@@ -73,7 +73,7 @@ export default function Services() {
 
       <section className="page-section" aria-labelledby="partnerTitle">
         <div className="container reveal">
-          <SectionHeading number="04" eyebrow="Working with EN-DEV" id="partnerTitle" title="A partnership built around your asset" />
+          <SectionHeading number="04" eyebrow="Working with EN-DEV" id="partnerTitle" title="A partnership built around your asset." />
           <ul className="feature-cards stagger">
             {PARTNERSHIP.map((f, i) => (
               <li key={f.title} className="feature-card" style={{ "--i": i }}>
@@ -88,7 +88,7 @@ export default function Services() {
 
       <section className="page-section page-section-white" aria-labelledby="strTitle">
         <div className="container reveal">
-          <SectionHeading number="05" eyebrow="Typical project structures" id="strTitle" title="Several value levers, one investable project" />
+          <SectionHeading number="05" eyebrow="Typical project structures" id="strTitle" title="Several value levers. One investable project." />
           <ul className="formula-list stagger">
             {STRUCTURES.map((parts, row) => (
               <li key={row} style={{ "--i": row }}>
@@ -111,18 +111,7 @@ export default function Services() {
         </div>
       </section>
 
-      <section className="page-section" aria-labelledby="models-title">
-        <div className="container reveal">
-          <SectionHeading number="06" eyebrow="How we participate" id="models-title" title="Different models, aligned interests" />
-          <ul className="participation-grid stagger">{MODELS.map((model, i) => <li key={model.title} style={{ "--i": i }}><span className="participation-number">0{i + 1}</span><h3>{model.title}</h3><p>{model.text}</p></li>)}</ul>
-        </div>
-      </section>
-
-      <section className="enquiry-zone" aria-label="Your next step">
-        <div className="container reveal">
-          <EnquiryBox title="Let’s find the potential in your asset" text="Tell us about your site and we’ll help identify the right starting point." label="Start the conversation" to="/contact?as=owner#enquiry" />
-        </div>
-      </section>
+      <PageCTA eyebrow="Your next step" title="Let’s find the potential in your asset." label="Start the conversation" to="/contact?as=owner#enquiry" />
     </div>
   );
 }
